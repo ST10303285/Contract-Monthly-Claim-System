@@ -5,15 +5,15 @@
 <div class="container mt-5">
     <div class="text-center">
         <h1 class="display-4">Welcome to the Contract Monthly Claim System</h1>
-        <p class="lead">Please select your role to access the appropriate dashboard</p>
+        <p class="lead" style="color: #4B5320;">Please select your role to access the appropriate dashboard</p>
     </div>
 
-    <!-- Navigation Section -->
+
     <div class="row justify-content-center mt-4">
         <div class="col-md-4">
             <div class="card shadow-sm">
                 <div class="card-body text-center">
-                    <h5 class="card-title">Lecturer Dashboard</h5>
+                    <h6 class="card-title">Lecturer Dashboard</h6>
                     <p class="card-text">Submit claims and track their status</p>
                     <a href="@Url.Action("Dashboard", "Lecturer")" class="btn btn-primary btn-lg">
                         <i class="fas fa-chalkboard-teacher"></i> Go to Lecturer Dashboard
@@ -24,7 +24,7 @@
         <div class="col-md-4">
             <div class="card shadow-sm">
                 <div class="card-body text-center">
-                    <h5 class="card-title">Programme Coordinator & Academic Manager Dashboard</h5>
+                    <h6 class="card-title">Programme Coordinator & Academic Manager Dashboard</h6>
                     <p class="card-text">Review and verify submitted claims</p>
                     <a href="@Url.Action("Dashboard", "Coordinator")" class="btn btn-info btn-lg">
                         <i class="fas fa-tasks"></i> Go to Claim Verification Dashboard
@@ -35,5 +35,5 @@
     </div>
 </div>
 
-<!-- FontAwesome Icons -->
+
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>

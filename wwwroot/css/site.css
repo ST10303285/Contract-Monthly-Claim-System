@@ -1,5 +1,4 @@
-/* Base font-size adjustments for responsiveness */
-html {
+{
     font-size: 14px;
     position: relative;
     min-height: 100%;
@@ -14,8 +13,8 @@ html {
 /* Body Styling */
 body {
     margin-bottom: 60px;
-    background-color: #E2EFD9; /* Light green background */
-    color: #4B5320; /* Dark green for text */
+    background-color: #E2EFD9; 
+    color: #4B5320; 
 }
 
 /* Button focus styles */
@@ -37,63 +36,63 @@ body {
 
 /* Large buttons styling */
 .btn-lg {
-    background-color: #6C8E3E; /* Dark green */
+    background-color: #6C8E3E; 
     border-color: #6C8E3E;
 }
 
     .btn-lg:hover {
-        background-color: #556B2F; /* Darker green on hover */
+        background-color: #556B2F; 
     }
 
 /* Primary and Info buttons */
 .btn-primary, .btn-info {
-    background-color: #6C8E3E; /* Dark green */
+    background-color: #6C8E3E; 
     border-color: #6C8E3E;
 }
 
     .btn-primary:hover, .btn-info:hover {
-        background-color: #556B2F; /* Darker green on hover */
+        background-color: #556B2F; 
         border-color: #556B2F;
     }
 
 /* Card Styling */
 .card {
     margin-top: 2rem;
-    background-color: #F4F1DE; /* Light brown */
+    background-color: #F4F1DE;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     border: none;
 }
 
 .card-header {
-    background-color: #A0522D; /* Brown header */
+    background-color: #4B5320; 
     color: white;
 }
 
 /* Table Header and Hover Effect */
 .table thead th {
-    background-color: #A0522D; /* Brown header */
+    background-color: #6C8E3E;
     color: white;
 }
 
 .table-hover tbody tr:hover {
-    background-color: #DDEEC3; /* Light green shade */
+    background-color: #DDEEC3; 
 }
 
 /* Modal Styling */
 .modal-header {
-    background-color: #A0522D; /* Brown header */
+    background-color: #6C8E3E;
     color: white;
 }
 
 .modal-footer .btn-success {
-    background-color: #6C8E3E; /* Dark green button */
+    background-color: #6C8E3E;
     border-color: #6C8E3E;
 }
 
 .modal-footer .btn-danger {
-    background-color: #A0522D; /* Brown button */
-    border-color: #A0522D;
+    background-color: #6C8E3E;
+    border-color: #6C8E3E;
 }
 
 /* Footer Styling */
@@ -105,11 +104,50 @@ body {
     text-align: center;
 }
 
-/* Links */
+
 a {
-    color: #4B5320; /* Dark green links */
+    color: #4B5320;
+}
+    a:hover {
+        color: #556B2F; 
+    }
+            
+
+
+h1, h2, h3, h4, h6 {
+    color: #4B5320 !important; 
 }
 
-    a:hover {
-        color: #556B2F; /* Darker green on hover */
-    }
+h5{
+    color: #f8f9fa !important; 
+
+}
+
+.dashboard h2 {
+    color: #4B5320; 
+}
+
+
+.table thead th {
+    background-color: #6C8E3E !important;
+    color: white !important;
+}
+
+
+.table-hover tbody tr:hover {
+    background-color: #DDEEC3 !important; 
+}
+
+.dashboard .table thead th {
+    background-color: #6C8E3E !important;
+    color: white !important;
+}
+
+.dashboard .table-striped tbody tr:nth-of-type(odd) {
+    background-color: #F4F1DE; 
+}
+
+.dashboard .table-striped tbody tr:nth-of-type(even) {
+    background-color: #E2EFD9; 
+}
+
