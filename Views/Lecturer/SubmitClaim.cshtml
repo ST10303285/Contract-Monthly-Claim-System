@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Submit Claim";
+}
+
+<h3>Submit New Claim</h3>
+
+<form>
+    <div class="form-group">
+        <label for="lecturerName">Lecturer Name</label>
+        <input type="text" class="form-control" id="lecturerName" value="John Doe" readonly />
+    </div>
+    <div class="form-group">
+        <label for="hoursWorked">Hours Worked</label>
+        <input type="number" class="form-control" id="hoursWorked" placeholder="Enter hours worked" />
+    </div>
+    <div class="form-group">
+        <label for="hourlyRate">Hourly Rate</label>
+        <input type="text" class="form-control" id="hourlyRate" value="$50" readonly />
+    </div>
+    <div class="form-group">
+        <label for="claimAmount">Claim Amount</label>
+        <input type="text" class="form-control" id="claimAmount" readonly />
+    </div>
+    <div class="form-group">
+        <label for="supportingDocuments">Upload Supporting Documents</label>
+        <input type="file" class="form-control" id="supportingDocuments" accept=".pdf, .jpg, .png" />
+    </div>
+    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+</form>
+
+<script>
+    document.getElementById('hoursWorked').onchange = function () {
+        var hours = document.getElementById('hoursWorked').value;
+        var rate = 50;
+        document.getElementById('claimAmount').value = "$" + (hours * rate).toFixed(2);
+    };
+</script>
+
