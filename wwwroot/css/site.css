@@ -1,46 +1,102 @@
+/* Base font-size adjustments for responsiveness */
 html {
-  font-size: 14px;
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
+/* Body Styling */
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: #E2EFD9; /* Light green background */
+    color: #4B5320; /* Dark green for text */
 }
 
+/* Button focus styles */
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
 
+/* Margin utility class */
 .my-5 {
     margin-top: 3rem !important;
     margin-bottom: 3rem !important;
 }
 
-
-.btn-lg:hover {
+/* Button hover effect */
+.btn-lg:hover, .btn-sm:hover {
     opacity: 0.85;
     transition: opacity 0.2s ease-in-out;
 }
 
-
-.card {
-    margin-top: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* Large buttons styling */
+.btn-lg {
+    background-color: #6C8E3E; /* Dark green */
+    border-color: #6C8E3E;
 }
 
+    .btn-lg:hover {
+        background-color: #556B2F; /* Darker green on hover */
+    }
 
+/* Primary and Info buttons */
+.btn-primary, .btn-info {
+    background-color: #6C8E3E; /* Dark green */
+    border-color: #6C8E3E;
+}
+
+    .btn-primary:hover, .btn-info:hover {
+        background-color: #556B2F; /* Darker green on hover */
+        border-color: #556B2F;
+    }
+
+/* Card Styling */
+.card {
+    margin-top: 2rem;
+    background-color: #F4F1DE; /* Light brown */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+.card-header {
+    background-color: #A0522D; /* Brown header */
+    color: white;
+}
+
+/* Table Header and Hover Effect */
+.table thead th {
+    background-color: #A0522D; /* Brown header */
+    color: white;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #DDEEC3; /* Light green shade */
+}
+
+/* Modal Styling */
+.modal-header {
+    background-color: #A0522D; /* Brown header */
+    color: white;
+}
+
+.modal-footer .btn-success {
+    background-color: #6C8E3E; /* Dark green button */
+    border-color: #6C8E3E;
+}
+
+.modal-footer .btn-danger {
+    background-color: #A0522D; /* Brown button */
+    border-color: #A0522D;
+}
+
+/* Footer Styling */
 .footer {
     position: fixed;
     bottom: 0;
@@ -49,20 +105,11 @@ body {
     text-align: center;
 }
 
-
-.modal-body p {
-    margin-bottom: 1rem;
+/* Links */
+a {
+    color: #4B5320; /* Dark green links */
 }
 
-
-.btn-sm:hover {
-    opacity: 0.9;
-    transition: opacity 0.2s ease-in-out;
-}
-
-
-.card {
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
+    a:hover {
+        color: #556B2F; /* Darker green on hover */
+    }
