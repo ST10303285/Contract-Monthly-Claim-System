@@ -21,30 +21,37 @@ body {
   margin-bottom: 60px;
 }
 
-/* Add some spacing between elements */
+
 .my-5 {
     margin-top: 3rem !important;
     margin-bottom: 3rem !important;
 }
 
-/* Button hover effect */
+
 .btn-lg:hover {
     opacity: 0.85;
     transition: opacity 0.2s ease-in-out;
 }
 
-/* Card styling */
+
 .card {
     margin-top: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Footer */
+
 .footer {
     position: fixed;
     bottom: 0;
     width: 100%;
     background-color: #f8f9fa;
     text-align: center;
+}
+
+h2{
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: black
 }
