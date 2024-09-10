@@ -49,9 +49,20 @@ body {
     text-align: center;
 }
 
-h2{
-    font-size: 1.5rem;
-    font-weight: 500;
-    line-height: 1.2;
-    color: black
+
+.modal-body p {
+    margin-bottom: 1rem;
 }
+
+
+.btn-sm:hover {
+    opacity: 0.9;
+    transition: opacity 0.2s ease-in-out;
+}
+
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
