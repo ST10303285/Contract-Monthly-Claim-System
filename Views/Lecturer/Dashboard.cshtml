@@ -28,21 +28,15 @@
     </div>
     <div class="card-body">
         <ul class="list-group">
-           
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                Claim #1: 10 hours worked
-                <span class="badge badge-warning badge-pill">Pending</span>
-            </li>
-            
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                Claim #2: 8 hours worked
-                <span class="badge badge-success badge-pill">Approved</span>
-            </li>
-           
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                Claim #3: 12 hours worked
-                <span class="badge badge-danger badge-pill">Rejected</span>
-            </li>
+           @foreach(var claim in Model)
+            {
+                <li class="list-group-item d-flex justify-content-between align-items-center">  
+                    Claim #@claim.ClaimId: @claim.hoursWorked hours worked
+                    <span class="badge badge-warning badge-pill">@claim.status</span>
+
+                </li>
+            }
+
         </ul>
     </div>
 </div>
