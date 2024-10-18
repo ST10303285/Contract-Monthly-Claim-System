@@ -22,8 +22,8 @@ namespace Contract_Monthly_Claim_System.Controllers
 
         public IActionResult Dashboard()
         {
-            var pendingClaims = _context.Claims.Where(c => c.status == "Pending").ToList();
-            return View(pendingClaims);
+            var allClaims = _context.Claims.ToList();
+            return View(allClaims);
         }
 
         public IActionResult SubmitClaim()
@@ -62,7 +62,7 @@ namespace Contract_Monthly_Claim_System.Controllers
                 {
                     Console.WriteLine("Failed to save claim.");
                 }
-                _context.SaveChanges();
+                
 
                 // Redirect to the dashboard or a confirmation page
                 return RedirectToAction("Dashboard");
@@ -71,6 +71,9 @@ namespace Contract_Monthly_Claim_System.Controllers
             // If the model is invalid, return the form with validation errors
             return View(model);
         }
+
+        
+
     }
 }
 

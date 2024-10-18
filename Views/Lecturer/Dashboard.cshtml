@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<Contract_Monthly_Claim_System.Models.Claim>
+
+@{
     ViewBag.Title = "Lecturer Dashboard";
 }
 
@@ -22,21 +24,44 @@
 </div>
 
 
-<div class="card">
-    <div class="card-header bg-#C1E1C1-500 text-white">
-        Claim Status Tracker
+<div class="container mt-5">
+    <div class="text-center">
+        <h2 class="text-center" style="color:darkolivegreen;">Claim Status Tracker</h2>
+        <p class="lead">View the status of your submitted claims</p>
     </div>
-    <div class="card-body">
-        <ul class="list-group">
-           @foreach(var claim in Model)
-            {
-                <li class="list-group-item d-flex justify-content-between align-items-center">  
-                    Claim #@claim.ClaimId: @claim.hoursWorked hours worked
-                    <span class="badge badge-warning badge-pill">@claim.status</span>
 
-                </li>
-            }
-
-        </ul>
+    <div class="card shadow-sm mb-5">
+        <div class="card-header bg-#C1E1C1-500 text-white">
+            <h5>Claim Status Tracker</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Claim ID</th>
+                            <th scope="col">Hours Worked</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var claim in Model)
+                        {
+                            <tr>
+                                <td>Claim #@claim.ClaimId</td>
+                                <td>@claim.hoursWorked hours</td>
+                                <td>
+                                    <span class="badge
+                                        @(claim.status == "Approved" ? "badge-success text-green" :
+                                          claim.status == "Rejected" ? "badge-danger text-red" : "badge-warning text-brown")">
+                                        @claim.status
+                                    </span>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
