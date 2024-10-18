@@ -14,7 +14,7 @@ namespace Contract_Monthly_Claim_System.Controllers
         {
             _context = context;  // This sets up _context for use in the class
         }
-        public IActionResult Index()
+        public IActionResult Index() // Index action
         {
             return View();
         }
