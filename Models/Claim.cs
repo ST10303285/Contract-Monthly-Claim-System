@@ -11,9 +11,11 @@ namespace Contract_Monthly_Claim_System.Models
         public string lecturerName { get; set; }
 
         [Required]
-         public double hoursWorked { get; set; }
+        [Range(0.01, double.MaxValue, ErrorMessage = "Please enter a positive number for Hours Worked")]
+        public double hoursWorked { get; set; }
 
         [Required]
+        [Range(0.01, double.MaxValue, ErrorMessage = "Please enter a positive number for Hourly Rate")]
         public double hourlyRate { get; set; }
 
         [Required]
@@ -23,5 +25,9 @@ namespace Contract_Monthly_Claim_System.Models
         public string status { get; set; }
 
         public DateTime submissionDate { get; set; }
+
+        public string UserId { get; set; }
+
+        
     }
 }
