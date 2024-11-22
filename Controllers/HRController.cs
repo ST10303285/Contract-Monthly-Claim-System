@@ -13,6 +13,11 @@ namespace Contract_Monthly_Claim_System.Controllers
     {
         private readonly ApplicationDbContext _context;
 
+        public HRController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
 		{
 			return View();
@@ -22,11 +27,7 @@ namespace Contract_Monthly_Claim_System.Controllers
             var lecturers = _context.Lecturers.ToList();
             return View(lecturers);
         }
-
-        public HRController(ApplicationDbContext context)
-        {
-            _context = context;
-        }
+ 
         public IActionResult Dashboard()
         {
             var approvedClaims = _context.Claims.Where(c => c.status == "Approved").ToList();
