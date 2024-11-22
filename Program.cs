@@ -9,7 +9,7 @@ builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(30); // Set session timeout duration
     options.Cookie.HttpOnly = true;
-    options.Cookie.IsEssential = true; // Make session cookie HttpOnly for security
+    options.Cookie.IsEssential = true; 
 });
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

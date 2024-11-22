@@ -28,11 +28,11 @@ namespace Contract_Monthly_Claim_System.Data
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<User>().HasData(
-                new User { UserId = 1, Username = "lecturer1", PasswordHash = HashPassword("password123"), Role = "Lecturer" },
+                new User { UserId = 1, Username = "lecturer1", PasswordHash = HashPassword("password123"), Role = "Lecturer" }, //
                 new User { UserId = 2, Username = "coordinator1", PasswordHash = HashPassword("password456"), Role = "Coordinator" }
             );
         }
-        private string HashPassword(string password)
+        private string HashPassword(string password) // method to hash the password
         {
             using (var sha256 = SHA256.Create())
             {
@@ -42,8 +42,8 @@ namespace Contract_Monthly_Claim_System.Data
             }
         }
 
-        public DbSet<Claim> Claims { get; set; }
-        public DbSet<User> Users { get; set; }
-        public DbSet<Lecturer> Lecturers { get; set; }
+        public DbSet<Claim> Claims { get; set; } // query the Claims table
+        public DbSet<User> Users { get; set; } //query the Users table
+        public DbSet<Lecturer> Lecturers { get; set; } //query the Lecturers table
     }
 }

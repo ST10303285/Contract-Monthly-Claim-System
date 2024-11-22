@@ -100,8 +100,8 @@ namespace Contract_Monthly_Claim_System.Controllers
         }
 
 
-        // Redirect user to respective dashboard based on their role
-        private IActionResult RedirectToRoleDashboard(string role)
+        
+        private IActionResult RedirectToRoleDashboard(string role) //method to redirect user to respective dashboard based on their role
         {
             if (role == "Lecturer")
                 return RedirectToAction("Dashboard", "Lecturer");
@@ -111,7 +111,7 @@ namespace Contract_Monthly_Claim_System.Controllers
                 return RedirectToAction("Index", "Home");
         }
 
-        private string HashPassword(string password)
+        private string HashPassword(string password) //method to hash the password
         {
             using (var sha256 = SHA256.Create())
             {
