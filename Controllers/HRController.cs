@@ -47,51 +47,49 @@ namespace Contract_Monthly_Claim_System.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateLecturer(Lecturer lecturer)
+        public IActionResult CreateLecturer(Lecturer lecturer) // Create a new lecturer
         {
             if (ModelState.IsValid)
             {
-                _context.Lecturers.Add(lecturer);
+                _context.Lecturers.Add(lecturer); //Add the entered detaisl for lecturer to the database
                 _context.SaveChanges();
-                return RedirectToAction("Lecturer");
+                return RedirectToAction("Lecturer"); // Redirect to the lecturer page
             }
-            return View(lecturer);
+            return View(lecturer); //if the model state is invalid, it shoudl return the lecturer view
         }
 
 
         // Edit lecturer details
         public IActionResult EditLecturer(int id)
         {
-            var lecturer = _context.Lecturers.Find(id);
-            if (lecturer == null)
+            var lecturer = _context.Lecturers.Find(id); // Find the lecturer that you want to edit by the lecturer id in the database 
+            if (lecturer == null) // If the lecturer is not found
             {
                 return NotFound();  // Return 404 if lecturer not found
             }
-            return View(lecturer);
+            return View(lecturer); //if the lecturer id is found in the databasse, return to the lecturer view
         }
 
         [HttpPost]
-        public IActionResult EditLecturer(Lecturer lecturer)
+        public IActionResult EditLecturer(Lecturer lecturer) // Edit lecturer details
         {
             if (ModelState.IsValid)
             {
-                _context.Lecturers.Update(lecturer);
+                _context.Lecturers.Update(lecturer); // Update the lecturer details in the database
                 _context.SaveChanges();
-                return RedirectToAction("Lecturer");
+                return RedirectToAction("Lecturer"); // Redirect to the lecturer page
             }
-            return View(lecturer);
+            return View(lecturer); //if the model state is invalid, it shoudl return the lecturer view
         }
-
-
 
         // Delete lecturer
         public IActionResult Delete(int id)
         {
-            var lecturer = _context.Lecturers.Find(id);
-            if (lecturer == null) return NotFound();
-            _context.Lecturers.Remove(lecturer);
+            var lecturer = _context.Lecturers.Find(id); // Find the lecturer that you want to delete by the lecturer id in the database
+            if (lecturer == null) return NotFound(); // If the lecturer is not found, return 404
+            _context.Lecturers.Remove(lecturer); // Remove the lecturer from the database
             _context.SaveChanges();
-            return RedirectToAction("Lecturer");
+            return RedirectToAction("Lecturer"); // Redirect to the lecturer page
         }
         ////////////////////////////////////////////////////////////////////end of methods for managing lecturer data/////////////////////////////////////////////////////////////////////////////////////////////
 
