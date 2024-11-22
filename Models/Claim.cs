@@ -11,7 +11,7 @@ namespace Contract_Monthly_Claim_System.Models
         public string lecturerName { get; set; }
 
         [Required]
-        [Range(0.01, double.MaxValue, ErrorMessage = "Please enter a positive number for Hours Worked")]
+        [Range(0.01, double.MaxValue, ErrorMessage = "Please enter a positive number for Hours Worked")] 
         public double hoursWorked { get; set; }
 
         [Required]
