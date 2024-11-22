@@ -20,7 +20,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace Contract_Monthly_Claim_System.Controllers
 {
    
-    public class LecturerController : Controller
+    public class LecturerController : Controller //Lecturer Controller for the lecturer to submit claims
     {
         private readonly ApplicationDbContext _context;
 
@@ -34,7 +34,7 @@ namespace Contract_Monthly_Claim_System.Controllers
             return View();
         }
 
-        [Authorize(Policy = "LecturerOnly")]
+        [Authorize(Policy = "LecturerOnly")] // Only allow lecturers to access the dashboard
         public IActionResult Dashboard()
         {
             var userId = User.Identity.Name;  // Get the logged-in user's ID (or username)
@@ -42,8 +42,8 @@ namespace Contract_Monthly_Claim_System.Controllers
                                          .Where(c => c.UserId == userId)  // Filter claims by user ID
                                          .ToList();  // Get the list of claims for the current user
 
-            // Pass the claims to the dashboard view
-            return View(lecturerClaims);
+            
+            return View(lecturerClaims); // Pass the filtered claims to the view
         }
 
         public IActionResult SubmitClaim()
@@ -52,24 +52,24 @@ namespace Contract_Monthly_Claim_System.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken] // For CSRF protection
-        public IActionResult SubmitClaim(ClaimViewModel model)
+        [ValidateAntiForgeryToken] 
+        public IActionResult SubmitClaim(ClaimViewModel model) // method to create a new claim
         {
             if (ModelState.IsValid)
             {
                 var userId = User.Identity.Name;
                 // Calculate the claim amount
-                double claimAmount = model.hoursWorked * model.hourlyRate;
+                double claimAmount = model.hoursWorked * model.hourlyRate; // Calculate the claim amount
 
                 string status;
 
                 // Automated rejection logic
-                if (model.hoursWorked > 160) // Max allowable hours
+                if (model.hoursWorked > 100) //if the hours worked exceed 100, automatically reject claim
                 {
                     status = "Rejected";
                     Console.WriteLine("Claim rejected: hours worked exceeded the limit.");
                 }
-                else if (model.hourlyRate > 50) // Max allowable hourly rate
+                else if (model.hourlyRate > 50) // if the hourly rate exceeds 50, automatically reject claim
                 {
                     status = "Rejected";
                     Console.WriteLine("Claim rejected: hourly rate exceeded the limit.");
@@ -79,7 +79,7 @@ namespace Contract_Monthly_Claim_System.Controllers
                     status = "Pending"; // Default status for valid claims
                 }
 
-                // Use the fully qualified name for your custom Claim entity
+                
                 var newClaim = new Contract_Monthly_Claim_System.Models.Claim
                 {
                     lecturerName = model.lecturerName,
@@ -91,8 +91,8 @@ namespace Contract_Monthly_Claim_System.Controllers
                      UserId = userId
                 };
 
-                // Save the new claim to the database
-                _context.Claims.Add(newClaim);
+                
+                _context.Claims.Add(newClaim); //save the claim created to the database
                 int rowsSaved = _context.SaveChanges();
                 if (rowsSaved > 0)
                 {
@@ -104,15 +104,15 @@ namespace Contract_Monthly_Claim_System.Controllers
                 }
                 
 
-                // Redirect to the dashboard or a confirmation page
-                return RedirectToAction("Dashboard");
+                
+                return RedirectToAction("Dashboard"); // Redirect to the dashboard
             }
 
-            // If the model is invalid, return the form with validation errors
+            
             return View(model);
         }
 
-        // GET: My Claims
+        
         public IActionResult MyClaims()
         {
             var userId = User.Identity.Name;  // Get the logged-in user's ID (or username)

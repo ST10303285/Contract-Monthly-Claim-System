@@ -96,22 +96,22 @@ namespace Contract_Monthly_Claim_System.Controllers
 
         ////////////////////////////////////////////////////////////////////methods for generating invoice for hr/////////////////////////////////////////////////////////////////////////////////////////////
 
-        public IActionResult GenerateInvoice(int claimId)
+        public IActionResult GenerateInvoice(int claimId) // Generate an invoice for a specific claim
         {
             // Fetch the specific claim by ID
-            var claim = _context.Claims.FirstOrDefault(c => c.ClaimId == claimId);
+            var claim = _context.Claims.FirstOrDefault(c => c.ClaimId == claimId); // Find the claim by the claim id in the database
             if (claim == null)
             {
                 return NotFound("Claim not found");
             }
 
             // Generate the PDF invoice
-            using var memoryStream = new MemoryStream();
-            var document = new iTextSharp.text.Document();
-            PdfWriter.GetInstance(document, memoryStream);
-            document.Open();
+            using var memoryStream = new MemoryStream(); // Create a memory stream to store the PDF
+            var document = new iTextSharp.text.Document(); // Create a new PDF document
+            PdfWriter.GetInstance(document, memoryStream); // Create a PDF writer
+            document.Open(); // Open the document
 
-            // Add Title
+            
             var titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 16);
             document.Add(new Paragraph("Invoice", titleFont) { Alignment = Element.ALIGN_CENTER });
             document.Add(new Paragraph(" ")); // Empty line for spacing
@@ -120,7 +120,7 @@ namespace Contract_Monthly_Claim_System.Controllers
             PdfPTable table = new PdfPTable(2) { WidthPercentage = 100 };
             table.SpacingBefore = 20f;
 
-            // Add headers with a background color
+           
             var headerFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12);
             table.AddCell(new PdfPCell(new Phrase("Field", headerFont)) { BackgroundColor = BaseColor.LIGHT_GRAY });
             table.AddCell(new PdfPCell(new Phrase("Value", headerFont)) { BackgroundColor = BaseColor.LIGHT_GRAY });
@@ -137,7 +137,7 @@ namespace Contract_Monthly_Claim_System.Controllers
             // Add the table to the document
             document.Add(table);
 
-            // Add a footer
+            //footer
             document.Add(new Paragraph("Thank you for your submission!", regularFont) { Alignment = Element.ALIGN_CENTER });
 
             document.Close();
