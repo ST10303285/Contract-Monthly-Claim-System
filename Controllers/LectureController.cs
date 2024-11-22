@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Authorization;
 //Wadiha Boat
 //ST10303285
 // Group 2
-
 // References:
 // https://learn.microsoft.com/en-us/ef/core/get-started/overview/install
 // https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-messages/cs0051?f1url=%3FappId%3Droslyn%26k%3Dk(CS0051)
