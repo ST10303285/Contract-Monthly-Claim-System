@@ -44,5 +44,6 @@ namespace Contract_Monthly_Claim_System.Data
 
         public DbSet<Claim> Claims { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Lecturer> Lecturers { get; set; }
     }
 }

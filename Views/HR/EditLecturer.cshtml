@@ -1,0 +1,30 @@
+﻿@model Contract_Monthly_Claim_System.Models.Lecturer
+
+@{
+    ViewData["Title"] = "Edit Lecturer";
+}
+
+<h2>Edit Lecturer</h2>
+
+<form asp-action="EditLecturer" method="post">
+    <input type="hidden" asp-for="LecturerId" />
+
+    <div class="form-group">
+        <label for="FirstName">First Name</label>
+        <input type="text" class="form-control" id="FirstName" name="FirstName" value="@Model.FirstName" required />
+    </div>
+    <div class="form-group">
+        <label for="LastName">Last Name</label>
+        <input type="text" class="form-control" id="LastName" name="LastName" value="@Model.LastName" required />
+    </div>
+    <div class="form-group">
+        <label for="Email">Email</label>
+        <input type="email" class="form-control" id="Email" name="Email" value="@Model.Email" required />
+    </div>
+    <div class="form-group">
+        <label for="PhoneNumber">Phone Number</label>
+        <input type="text" class="form-control" id="PhoneNumber" name="PhoneNumber" value="@Model.PhoneNumber" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+
