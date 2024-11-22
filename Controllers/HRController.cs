@@ -34,7 +34,12 @@ namespace Contract_Monthly_Claim_System.Controllers
             return View(approvedClaims); // Render a view showing approved claims
         }
 
-        // Create a new lecturer
+       
+      
+   
+         ////////////////////////////////////////////////////////////////////methods for managing lecturer data/////////////////////////////////////////////////////////////////////////////////////////////
+        
+       
         public IActionResult CreateLecturer()
         {
             var lecturer = new Lecturer(); // Initialize a new lecturer object
@@ -52,6 +57,7 @@ namespace Contract_Monthly_Claim_System.Controllers
             }
             return View(lecturer);
         }
+
 
         // Edit lecturer details
         public IActionResult EditLecturer(int id)
@@ -76,6 +82,8 @@ namespace Contract_Monthly_Claim_System.Controllers
             return View(lecturer);
         }
 
+
+
         // Delete lecturer
         public IActionResult Delete(int id)
         {
@@ -85,6 +93,10 @@ namespace Contract_Monthly_Claim_System.Controllers
             _context.SaveChanges();
             return RedirectToAction("Lecturer");
         }
+        ////////////////////////////////////////////////////////////////////end of methods for managing lecturer data/////////////////////////////////////////////////////////////////////////////////////////////
+
+
+        ////////////////////////////////////////////////////////////////////methods for generating invoice for hr/////////////////////////////////////////////////////////////////////////////////////////////
 
         public IActionResult GenerateInvoice(int claimId)
         {
@@ -141,5 +153,8 @@ namespace Contract_Monthly_Claim_System.Controllers
             table.AddCell(new PdfPCell(new Phrase(field, font)));
             table.AddCell(new PdfPCell(new Phrase(value, font)));
         }
+
+        ////////////////////////////////////////////////////////////////////methods for managing lecturer data/////////////////////////////////////////////////////////////////////////////////////////////
+
     }
 }
