@@ -139,9 +139,5 @@ namespace Contract_Monthly_Claim_System.Controllers
             HttpContext.Session.Clear(); // Clear session data
             return RedirectToAction("Login");
         }
-
-
-
-
     }
 }
