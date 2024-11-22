@@ -1,0 +1,27 @@
+﻿@model List<Claim>
+
+<h2>Approved Claims</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Lecturer Name</th>
+            <th>Hours Worked</th>
+            <th>Hourly Rate</th>
+            <th>Claim Amount</th>
+            <th>Submission Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var claim in Model)
+        {
+            <tr>
+                <td>@claim.lecturerName</td>
+                <td>@claim.hoursWorked</td>
+                <td>@claim.hourlyRate</td>
+                <td>@claim.claimAmount</td>
+                <td>@claim.submissionDate.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
