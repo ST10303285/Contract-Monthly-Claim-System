@@ -19,7 +19,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Contract_Monthly_Claim_System.Controllers
 {
-   
+    [Authorize(Policy = "LecturerOnly")]
     public class LecturerController : Controller //Lecturer Controller for the lecturer to submit claims
     {
         private readonly ApplicationDbContext _context;
@@ -34,7 +34,7 @@ namespace Contract_Monthly_Claim_System.Controllers
             return View();
         }
 
-        [Authorize(Policy = "LecturerOnly")] // Only allow lecturers to access the dashboard
+        
         public IActionResult Dashboard()
         {
             var userId = User.Identity.Name;  // Get the logged-in user's ID (or username)

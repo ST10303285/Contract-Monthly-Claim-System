@@ -17,7 +17,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Contract_Monthly_Claim_System.Controllers
 {
-   
+    [Authorize(Policy = "CoordinatorOnly")]
     public class CoordinatorController : Controller
     {
 
@@ -39,7 +39,7 @@ namespace Contract_Monthly_Claim_System.Controllers
             var pendingClaims = _context.Claims.Where(c => c.status == "Pending").ToList();
             return View(pendingClaims); // Pass the pending claims to the view
         }
-        [Authorize(Policy = "CoordinatorOnly")]
+        
         public IActionResult LecturerDashboard()
         {
             var claims = _context.Claims.ToList();  // Fetch all claims from the database
